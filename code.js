@@ -8,14 +8,14 @@ while (horario >24) {
 }
 
 if (horario >= 6 && horario <= 12){
-    alert (`Buenos dias ${nameUser}! Bienvenido/a al simulador`)
+    alert (`✋Buenos dias ${nameUser}! Bienvenido/a al simulador`)
     console.log (`El nombre del usuario es ${nameUser} y ha ingresado a las ${horario}hs`)
 }else if (horario >= 13 && horario <= 19){
-    alert (`Buenas tardes ${nameUser}! Bienvenido/a al simulador`)
+    alert (`✋Buenas tardes ${nameUser}! Bienvenido/a al simulador`)
     console.log (`El nombre del usuario es ${nameUser} y ha ingresado a las ${horario}hs`)
 }else{
     alert (`Buenas noches ${nameUser}! Bienvenido/a al simulador`)
-    console.log (`El nombre del usuario es ${nameUser} y ha ingresado a las ${horario}hs`)
+    console.log (`✋El nombre del usuario es ${nameUser} y ha ingresado a las ${horario}hs`)
 }
 
 /* Funciones */
