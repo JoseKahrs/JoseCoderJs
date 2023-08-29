@@ -3,6 +3,10 @@
 let nameUser = prompt("Ingrese su nombre")
 let horario = parseInt(prompt("Por favor ingrese su hora local"))
 
+while (horario >24) {
+    horario = parseInt(prompt("Por favor ingrese su hora local, entre las 0h y 24hs"))
+}
+
 if (horario >= 6 && horario <= 12){
     alert (`Buenos dias ${nameUser}! Bienvenido/a al simulador`)
     console.log (`El nombre del usuario es ${nameUser} y ha ingresado a las ${horario}hs`)
@@ -36,7 +40,7 @@ function suma (numero1, numero2){
     let operando1 = parseInt(prompt("Ingrese el primer numero a sumar"))
     let operando2 = parseInt(prompt("Ingrese el segundo numero a sumar"))
     let resultSuma = operando1 + operando2
-    console.log (`${operando1} + ${operando2} = ${resultSuma}`)
+    console.log (`La suma realizada por el usuario fue: ${operando1} + ${operando2} = ${resultSuma}`)
     alert (`${operando1} + ${operando2} = ${resultSuma}`)
     return numero1 + numero2
 }
@@ -46,7 +50,7 @@ function resta (numero1, numero2){
     let operando1 = parseInt(prompt("Ingrese el primer numero a restar"))
     let operando2 = parseInt(prompt("Ingrese el segundo numero a restar"))
     let resultSuma = operando1 - operando2
-    console.log (`${operando1} - ${operando2} = ${resultSuma}`)
+    console.log (`La resta realizada por el usuario fue: ${operando1} - ${operando2} = ${resultSuma}`)
     alert (`${operando1} - ${operando2} = ${resultSuma}`)
     return numero1 - numero2
 }
@@ -56,7 +60,7 @@ function division (numero1, numero2){
     let operando1 = parseInt(prompt("Ingrese el numero a dividir"))
     let operando2 = parseInt(prompt("Ingrese el numero divisor"))
     let resultSuma = operando1 / operando2
-    console.log (`${operando1} / ${operando2} = ${resultSuma}`)
+    console.log (`La division realizada por el usuario fue: ${operando1} / ${operando2} = ${resultSuma}`)
     alert (`${operando1} / ${operando2} = ${resultSuma}`)
     return numero1 / numero2
 }
@@ -64,13 +68,14 @@ function division (numero1, numero2){
 /* MULTIPLICACION */
 function multiplicacion (numero1, numero2){
     let operando1 = parseInt(prompt("Ingrese el numero a multiplicar"))
-    let operando2 = parseInt(prompt("Ingrese el segundo numero multiplicador"))
+    let operando2 = parseInt(prompt("Ingrese el numero multiplicador"))
     let resultSuma = operando1 * operando2
-    console.log (`${operando1} * ${operando2} = ${resultSuma}`)
+    console.log (`La multiplicacion realizada por el usuario fue: ${operando1} * ${operando2} = ${resultSuma}`)
     alert (`${operando1} * ${operando2} = ${resultSuma}`)
     return numero1 * numero2
 }
 
+/* CALCULADORA */
 function calculoArit () {
     let menuCalc = parseInt(prompt(`Ingrese la opción deseada
     1 - Suma
@@ -80,15 +85,19 @@ function calculoArit () {
     5 - Salir`))
     switch (menuCalc) {
         case 1:
+            console.log ("El usuario realizara una suma")
             suma ()
         break
         case 2:
+            console.log ("El usuario realizara una resta")
             resta ()
         break
         case 3:
+            console.log ("El usuario realizara una division")
             division ()
         break
         case 4:
+            console.log ("El usuario realizara una multiplicacion")
             multiplicacion ()
         break
         case 5:
@@ -107,12 +116,26 @@ function calculoArit () {
     }
 }
 
+/* TABLAS DE MULTIPLICAR */
+function tablasMulti () {
+    let numTabla = parseInt(prompt("Ingrese un numero del 1 al 10 del cual desea saber la tabla"))
+    while (numTabla > 10 && numTabla >= 0) {
+        numTabla = parseInt(prompt("Ingrese un numero del 1 al 10 (Maximo 10) del cual desea saber la tabla"))
+    }
+    for (let num = 0; num <=10; num ++) {
+        let multiResult = numTabla * num
+        alert (`${numTabla} x ${num} = ${multiResult}`)
+        console.log (`${numTabla} x ${num} = ${multiResult}`)
+    }
+}
+
 /* Menu simulador */
 
 do{
     let opcionIngresada = parseInt(prompt(`Ingrese la opción deseada
        1 - Realizar un calculo aritmetico
        2 - Hacer un promedio
+       3 - Tablas de multiplicar
        0 - Salir del menu`))
        switch(opcionIngresada){
           case 1:
@@ -123,6 +146,10 @@ do{
             console.log(`Opcion 2: Realizar un promedio`)
             promedio ()
           break
+          case 3:
+            console.log (`Opcion 3: Tablas de multiplicar`)
+            tablasMulti ()
+          break
           case 0:
             console.log(`Gracias por utilizar nuestra app. Saludos!`)
             alert (`Gracias por utilizar nuestra app. Saludos!`)
@@ -130,8 +157,8 @@ do{
           break   
           default:
             opcionIngresada = parseInt(prompt(`Opción no válida, ingrese alguna presente en el menu
-            1 - Realizar un calculo
-            2 - Hacer otra cosa
+            1 - Realizar un calculo aritmetico
+            2 - Hacer un promedio
             0 - Salir del menu`))
             console.log("Opción no válida, ingrese alguna presente en el menu")
           break
