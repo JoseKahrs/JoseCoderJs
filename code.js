@@ -118,20 +118,24 @@ function calculoArit () {
 
 /* TABLAS DE MULTIPLICAR */
 function tablasMulti () {
+    let resultList = ""
     let numTabla = parseInt(prompt("Ingrese un numero del 1 al 10 del cual desea saber la tabla"))
     while (numTabla > 10 && numTabla >= 0) {
         numTabla = parseInt(prompt("Ingrese un numero del 1 al 10 (Maximo 10) del cual desea saber la tabla"))
     }
     for (let num = 0; num <=10; num ++) {
         let multiResult = numTabla * num
-        alert (`${numTabla} x ${num} = ${multiResult}`)
-        console.log (`${numTabla} x ${num} = ${multiResult}`)
+        resultList += (`${numTabla} x ${num} = ${multiResult} \n`)
     }
+    console.log (resultList)
+    alert (resultList)
+    alert ("Gracias por utilizar nuestro simulador. Saludos!")
 }
 
 /* Menu simulador */
 
 do{
+    let salirMenu = false
     let opcionIngresada = parseInt(prompt(`Ingrese la opción deseada
        1 - Realizar un calculo aritmetico
        2 - Hacer un promedio
@@ -152,15 +156,17 @@ do{
           break
           case 0:
             console.log(`Gracias por utilizar nuestra app. Saludos!`)
-            alert (`Gracias por utilizar nuestra app. Saludos!`)
+            alert (`Gracias por utilizar nuestro simulador. Saludos!`)
             salirMenu = true
           break   
           default:
             opcionIngresada = parseInt(prompt(`Opción no válida, ingrese alguna presente en el menu
             1 - Realizar un calculo aritmetico
             2 - Hacer un promedio
+            3 - Tablas de multiplicar
             0 - Salir del menu`))
             console.log("Opción no válida, ingrese alguna presente en el menu")
+            salirMenu = false
           break
        }
 }while(!salirMenu)
