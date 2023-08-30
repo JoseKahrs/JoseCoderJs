@@ -81,27 +81,26 @@ function calculoArit () {
     1 - Suma
     2 - Resta
     3 - Division
-    4 - Multiplicacion
-    5 - Salir`))
+    4 - Multiplicacion`))
     switch (menuCalc) {
         case 1:
             console.log ("El usuario realizara una suma")
             suma ()
+            alert (`Gracias por utilizar nuestra app. Saludos!`)
         break
         case 2:
             console.log ("El usuario realizara una resta")
             resta ()
+            alert (`Gracias por utilizar nuestra app. Saludos!`)
         break
         case 3:
             console.log ("El usuario realizara una division")
             division ()
+            alert (`Gracias por utilizar nuestra app. Saludos!`)
         break
         case 4:
             console.log ("El usuario realizara una multiplicacion")
             multiplicacion ()
-        break
-        case 5:
-            console.log(`Gracias por utilizar nuestra app. Saludos!`)
             alert (`Gracias por utilizar nuestra app. Saludos!`)
         break
         default:
@@ -109,8 +108,7 @@ function calculoArit () {
             1 - Suma
             2 - Resta
             3 - Division
-            4 - Multiplicacion
-            5 - Salir`))
+            4 - Multiplicacion`))
             console.log ("Opcion no valida")
         break
     }
@@ -170,4 +168,3 @@ do{
           break
        }
 }while(!salirMenu)
-
