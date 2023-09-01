@@ -86,22 +86,22 @@ function calculoArit () {
         case 1:
             console.log ("El usuario realizara una suma")
             suma ()
-            alert (`Gracias por utilizar nuestra app. Saludos!`)
+            alert (`Gracias por utilizar nuestro simulador. Saludos!`)
         break
         case 2:
             console.log ("El usuario realizara una resta")
             resta ()
-            alert (`Gracias por utilizar nuestra app. Saludos!`)
+            alert (`Gracias por utilizar nuestro simulador. Saludos!`)
         break
         case 3:
             console.log ("El usuario realizara una division")
             division ()
-            alert (`Gracias por utilizar nuestra app. Saludos!`)
+            alert (`Gracias por utilizar nuestro simulador. Saludos!`)
         break
         case 4:
             console.log ("El usuario realizara una multiplicacion")
             multiplicacion ()
-            alert (`Gracias por utilizar nuestra app. Saludos!`)
+            alert (`Gracias por utilizar nuestro simulador. Saludos!`)
         break
         default:
             menuCalc = parseInt(prompt(`Opcion no valida, ingrese la opción deseada
