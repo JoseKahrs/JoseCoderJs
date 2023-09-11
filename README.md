@@ -1,3 +1,3 @@
-# Primer Pre Entrega JS
+# Segunda Pre Entrega JS
 ## Jose Luis Kahrs
 ## Comision 47045
