@@ -267,7 +267,7 @@ let salirMenu = false
 
 do{
 let opcionIngresada = parseInt(prompt(`Bienvenido/a a nuestro simulador! \nIngrese la opción deseada \n
-   1 - Autos
+   1 - Ver catalogo de autos
    2 - Agregar un Auto
    3 - Eliminar un Auto
    4 - Buscar un Auto
