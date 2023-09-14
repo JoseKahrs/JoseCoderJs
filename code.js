@@ -5,7 +5,7 @@ while (nameUser == "" || nameUser >= 0) {
 
 let horario = parseInt(prompt("Por favor ingrese su hora local"))
 
-while (horario > 24) {
+while (horario > 24 || isNaN(horario)) {
     horario = parseInt(prompt("Por favor ingrese su hora local, entre las 0h y 24hs"))
 }
 
@@ -158,6 +158,9 @@ function buscarMarca (array) {
 //POR ANO
 function buscarAno (array) {
   let anoBuscado = parseInt(prompt(`Ingrese el ano que desea buscar`))
+  while (isNaN(anoBuscado)) {
+    anoBuscado = parseInt(prompt(`Ingrese el ano (de forma numerica) que desea buscar`))
+  }
   let busquedaAno = array.filter (
     (auto) => auto.ano == anoBuscado
     )
@@ -247,13 +250,19 @@ function precioMayor (array) {
 function calculoAlquiler (auto) {
   mostrarGaraje (auto)
   let idAlquiler = parseInt(prompt(`Mire la consola y ingrese el id del auto que desea alquilar`))
+  while (isNaN(idAlquiler)) {
+    idAlquiler = parseInt(prompt(`Mire la consola y ingrese el id del auto que desea alquilar`))
+  }
   let autoAlquilado = auto.find (
     (auto) => auto.id == idAlquiler
   )
   let dias = parseInt(prompt(`Ingrese la cantidad de dias que desea alquilar el vehiculo`))
+  while (isNaN(dias)) {
+    dias = parseInt(prompt(`Ingrese la cantidad de dias que desea alquilar el vehiculo`))
+  }
   let total = 0
-  total = dias * auto.precio
-  console.log (total)
+  total = dias * autoAlquilado.precio
+  console.log (`Desea alquilar el auto ${autoAlquilado.id}, marca ${autoAlquilado.marca}, modelo ${autoAlquilado.modelo}, durante ${dias} dias y el costo total es de $${total}`)
 
 }
 
