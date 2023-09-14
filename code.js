@@ -10,14 +10,14 @@ while (horario > 24) {
 }
 
 if (horario >= 6 && horario <= 12){
-    alert (`✋Buenos dias ${nameUser}! Bienvenido/a al simulador`)
-    console.log (`El nombre del usuario es ${nameUser} y ha ingresado a las ${horario}hs`)
+  alert (`✋Buenos dias ${nameUser}! Bienvenido/a al simulador`)
+  console.log (`El nombre del usuario es ${nameUser} y ha ingresado a las ${horario}hs`)
 }else if (horario >= 13 && horario <= 19){
-    alert (`✋Buenas tardes ${nameUser}! Bienvenido/a al simulador`)
-    console.log (`El nombre del usuario es ${nameUser} y ha ingresado a las ${horario}hs`)
+  alert (`✋Buenas tardes ${nameUser}! Bienvenido/a al simulador`)
+  console.log (`El nombre del usuario es ${nameUser} y ha ingresado a las ${horario}hs`)
 }else{
-    alert (`Buenas noches ${nameUser}! Bienvenido/a al simulador`)
-    console.log (`✋El nombre del usuario es ${nameUser} y ha ingresado a las ${horario}hs`)
+  alert (`Buenas noches ${nameUser}! Bienvenido/a al simulador`)
+  console.log (`✋El nombre del usuario es ${nameUser} y ha ingresado a las ${horario}hs`)
 }
 /* OBJETOS */
 //Autos
@@ -61,10 +61,7 @@ garaje.push (auto1, auto2, auto3, auto4, auto5, auto6, auto7, auto8, auto9, auto
 function mostrarGaraje (array) {
 
   for (let auto of array) {
-    let nuestrosAutos =+ (`${marca} ${modelo} Ano:${ano} Tipo:${tipo} Precio: $${precio}`) 
-    alert ("Nuestros autos disponibles son:" + nuestrosAutos)
-    console.log (`${auto.id} ${auto.marca} ${auto.modelo} ${auto.ano} ${auto.tipo} ${auto.precio}`)
-    auto.catAuto ()
+    console.log (auto.id, auto.marca, auto.modelo, auto.ano, auto.tipo, auto.precio)
   }
 
 }
@@ -80,18 +77,12 @@ function agregarAuto (array) {
     modelo = prompt(`Por favor. ingrese el modelo del vehiculo`)
   }
   let ano = parseInt(prompt(`Ingrese el ano del vehiculo ${marca} ${modelo}`))
-  while (ano === "" || ano === NaN) {
-    ano = parseInt(prompt(`Por favor, ingrese el ano del vehiculo ${marca} ${modelo}`))
-  }
+  /* WHILE ANO */
   let tipo = prompt(`Ingrese el tipo de vehiculo \n (sedan, suv, coupe, deportivo, cabrio, berlina)`)
-  /* while (tipo != "sedan" || tipo != "suv" || tipo != "coupe" || tipo != "deportivo" || tipo !=  "cabrio" || tipo != "berlina") {
-    tipo = prompt(`Por favor, ingrese el tipo de vehiculo dentro de las siguientes opciones \n (sedan, suv, coupe, deportivo, cabrio, berlina)`)
-  } */
+  /* WHILE TIPO */
   let newCar = (`auto agregado: \n Marca:${marca}\n Modelo:${modelo}\n Ano: ${ano}\n Tipo: ${tipo}`)
   let precio = parseInt(prompt(`Ingrese el precio del ${newCar}`))
-  while (precio == NaN || precio == "") {
-    precio = parseInt(prompt(`Por favor, ingrese el precio del ${newCar}`))
-  }
+  /* WHILE PRECIO */
   
   const nuevoAuto = new Auto (garaje.length+1, marca, modelo, ano, tipo, precio)
   console.log (nuevoAuto)
@@ -100,6 +91,7 @@ function agregarAuto (array) {
 }
 /* ELIMINAR UN AUTO */
 function borrarAuto (array) {
+  
   mostrarGaraje (array)
   let idEliminar = parseInt(prompt(`Observar el catalogo en consola y seleccionar ID a eliminar`))
   let coincidencia = false 
@@ -110,6 +102,9 @@ function borrarAuto (array) {
       mostrarGaraje (array)
     }
   }
+    if (!coincidencia) {
+      console.log (`El id ${idEliminar} no coincide con el id de ningun auto. No se pudo eliminar`)
+    }
 }
 
 /* MENU PARA BUSCADOR */
@@ -147,8 +142,9 @@ function menuBusqueda () {
 // POR MARCA
 function buscarMarca (array) {
   let marcaBuscada = prompt(`Ingrese la marca que desea buscar`)
+  console.log (`La busqueda del usuario fue: ${marcaBuscada}`)
   let busquedaMarca = array.filter (
-    (auto) => auto.marca.toLowerCase () == marcaBuscada.toLowerCase
+    (auto) => auto.marca.toLowerCase () == marcaBuscada.toLowerCase ()
   )
   if (busquedaMarca.length == 0) {
     console.log (`No hay coincidencias con ${marcaBuscada}`)
@@ -215,7 +211,7 @@ function ordenarPrecio (array) {
         break
         case 2:
           console.log ("Opcion dos: Mayor a menor")
-          precioMayor ()
+          precioMayor (garaje)
         break
         case 0:
           console.log ("Opcion 0: Atras")
@@ -239,7 +235,7 @@ function precioMenor (array) {
 }
 
 //Precio mayor a menor
-function precioMenor (array) {
+function precioMayor (array) {
   let precioMenorMayor = array.concat ()
   precioMenorMayor.sort (
     (precio1, precio2) => precio2.precio - precio1.precio
@@ -248,17 +244,16 @@ function precioMenor (array) {
 }
 
 //Calculo Alquiler
-function calculoAlquiler (array) {
-  mostrarGaraje (array)
-  let idAuto = parseInt(prompt("Seleccione el id del auto que desea alquilar:\n" + mostrarGaraje ()))
-  let diasAlquiler = parseInt(prompt(`Ingrese la cantidad de dias que desea alquilar el vehiculo`))
-  let total = 0
-  let autoAlquilado = array.find (
-    (vehiculo) => vehiculo.id == idAuto
+function calculoAlquiler (auto) {
+  mostrarGaraje (auto)
+  let idAlquiler = parseInt(prompt(`Mire la consola y ingrese el id del auto que desea alquilar`))
+  let autoAlquilado = auto.find (
+    (auto) => auto.id == idAlquiler
   )
-  for (let auto of vechiculo) {
-    total += total + diasAlquiler*auto.precio
-  }
+  let dias = parseInt(prompt(`Ingrese la cantidad de dias que desea alquilar el vehiculo`))
+  let total = 0
+  total = dias * auto.precio
+  console.log (total)
 
 }
 
