@@ -59,11 +59,12 @@ garaje.push (auto1, auto2, auto3, auto4, auto5, auto6, auto7, auto8, auto9, auto
 
 /* MOSTRAR CATALOGO */
 function mostrarGaraje (array) {
-
+  let catalogo = ``
   for (let auto of array) {
     console.log (auto.id, auto.marca, auto.modelo, auto.ano, auto.tipo, auto.precio)
+    catalogo += `${auto.id} ${auto.marca} ${auto.modelo} ${auto.ano} ${auto.tipo} ${auto.precio} \n`
   }
-
+  alert (catalogo)
 }
 
 /* AGREGAR UN AUTO */
@@ -77,12 +78,18 @@ function agregarAuto (array) {
     modelo = prompt(`Por favor. ingrese el modelo del vehiculo`)
   }
   let ano = parseInt(prompt(`Ingrese el ano del vehiculo ${marca} ${modelo}`))
-  /* WHILE ANO */
-  let tipo = prompt(`Ingrese el tipo de vehiculo \n (sedan, suv, coupe, deportivo, cabrio, berlina)`)
-  /* WHILE TIPO */
+  while (isNaN(ano) || ano <= 2000) {
+    ano = parseInt(prompt(`Ingrese el ano (con valores numericos y mayor al ano 2000) del vehiculo ${marca} ${modelo}`))
+  }
+  let tipo = prompt(`Ingrese el tipo de vehiculo \n sedan, suv, coupe, deportivo, cabrio, berlina`)
+ /*  while ( ) {
+
+  } */
   let newCar = (`auto agregado: \n Marca:${marca}\n Modelo:${modelo}\n Ano: ${ano}\n Tipo: ${tipo}`)
   let precio = parseInt(prompt(`Ingrese el precio del ${newCar}`))
-  /* WHILE PRECIO */
+  while (isNaN(precio)) {
+    precio = parseInt(prompt(`Ingrese el precio del ${newCar}`))
+  }
   
   const nuevoAuto = new Auto (garaje.length+1, marca, modelo, ano, tipo, precio)
   console.log (nuevoAuto)
@@ -263,7 +270,7 @@ function calculoAlquiler (auto) {
   let total = 0
   total = dias * autoAlquilado.precio
   console.log (`Desea alquilar el auto ${autoAlquilado.id}, marca ${autoAlquilado.marca}, modelo ${autoAlquilado.modelo}, durante ${dias} dias y el costo total es de $${total}`)
-
+  alert (`Desea alquilar el auto ${autoAlquilado.id}, marca ${autoAlquilado.marca}, modelo ${autoAlquilado.modelo}, durante ${dias} dias y el costo total es de $${total}`)
 }
 
 //MENU do while y switch 
