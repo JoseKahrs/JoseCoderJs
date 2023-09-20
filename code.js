@@ -81,10 +81,7 @@ function agregarAuto (array) {
   while (isNaN(ano) || ano <= 2000) {
     ano = parseInt(prompt(`Ingrese el ano (con valores numericos y mayor al ano 2000) del vehiculo ${marca} ${modelo}`))
   }
-  let tipo = prompt(`Ingrese el tipo de vehiculo \n sedan, suv, coupe, deportivo, cabrio, berlina`).toLowerCase ()
-  /* while (tipo == "sedan" || tipo == "suv" || tipo == "coupe" || tipo == "deportivo" || tipo == "cabrio" || tipo == "berlina") {
-    tipo = prompt(`Ingrese el tipo de vehiculo \n sedan, suv, coupe, deportivo, cabrio, berlina`).toLowerCase ()
-  } */
+  let tipo = prompt(`Ingrese el tipo de vehiculo \n sedan, suv, coupe, deportivo, cabrio, berlina`)
   let newCar = (`auto agregado: \n Marca:${marca}\n Modelo:${modelo}\n Ano: ${ano}\n Tipo: ${tipo}`)
   let precio = parseInt(prompt(`Ingrese el precio del ${newCar}`))
   while (isNaN(precio)) {
